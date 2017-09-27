@@ -61,10 +61,10 @@ void LoadItems(string[], double[], int);
 
 //-----------------------------------------------
 // ReadReceipt
-// PreCondition: User input is an integer
-// PostCondition: Select menu option and run related function
+// PreCondition: None
+// PostCondition: Parse receipt file into order array
 //-----------------------------------------------
-void ReadReceipt(string[], double[]);
+void ReadReceipt(string items[], double prices[]);
 
 /*
  * GenerateReceipt
@@ -80,7 +80,6 @@ void GenerateReceipts(string items[], double prices[], int orders[][2], int size
         cout << setw(6) << orders[j][0] << setw(20) << items[orders[j][1] - 1] << setw(10) << "$" << fixed << setprecision(2) << prices[orders[j][1] - 1] << endl;
         file << orders[j][0] << " " << orders[j][1] << endl;
     }
-    file.close();
     // Generate subtotal
     double subtotal = 0; // Keep track of subtotal
     for (int j = 0; j < size; j++)
@@ -95,6 +94,7 @@ void GenerateReceipts(string items[], double prices[], int orders[][2], int size
 
 /* 
  * ReadReceipt
+ * Read receipt from file
  */
 void ReadReceipt(string items[], double prices[]) {
     ifstream file("proj1_receipt.txt"); // read receipt file
@@ -106,7 +106,7 @@ void ReadReceipt(string items[], double prices[]) {
         file >> orders[i - 1][0] >> orders[i++][1];
     file.close();
 
-    GenerateReceipts(items, prices, orders, i-1);
+    GenerateReceipts(items, prices, orders, i - 1); // Show receipt
 }
 
 /*
