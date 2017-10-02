@@ -1,0 +1,5 @@
+g++ -Wall -g -c Vampire.cpp 
+g++ -Wall -g -c lab5.cpp 
+g++ Vampire.o lab5.o -o ${PWD##*/}
+./${PWD##*/}
+You changed your vamp2's name.

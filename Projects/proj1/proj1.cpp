@@ -114,7 +114,7 @@ void ReadReceipt(string items[], double prices[]) {
  * Keep track of user order
  */
 
-void ManageOrder(string items[], double prices[], int size) {
+void ManageOrder(string items[], double prices[], int size) {ggi
     int orders[MAX_ORDERS][2]; // Store all of the ordered items
     int i = 0; // Incrementer
     string goOn; // Store user answer for "Do you want to add more items"
