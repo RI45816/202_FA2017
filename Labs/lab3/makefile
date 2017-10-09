@@ -10,7 +10,8 @@ build: $(EXE)
 
 c: clean all
 
-
+echo:
+	echo $(Folder)
 	
 $(EXE): $(OBJS)
 	$(CXX) $(OBJS) -o $(EXE)
