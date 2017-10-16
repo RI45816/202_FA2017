@@ -1,0 +1,5 @@
+g++ -Wall -g -c lab6.cpp 
+g++ -Wall -g -c Student.cpp 
+g++ lab6.o Student.o -o ${PWD##*/}
+./${PWD##*/}
+How many students are in your class?:
