@@ -1,0 +1,13 @@
+g++ -Wall -g -c lab7.cpp 
+g++ lab7.o -o ${PWD##*/}
+lab7.o: In function `main':
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Labs/lab7/lab7.cpp:7: undefined reference to `Helicopter::Helicopter()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Labs/lab7/lab7.cpp:7:(.text+0x1b): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `Helicopter::Helicopter()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Labs/lab7/lab7.cpp:8: undefined reference to `Helicopter::Display()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Labs/lab7/lab7.cpp:8:(.text+0x27): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `Helicopter::Display()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Labs/lab7/lab7.cpp:7: undefined reference to `Helicopter::~Helicopter()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Labs/lab7/lab7.cpp:7:(.text+0x38): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `Helicopter::~Helicopter()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Labs/lab7/lab7.cpp:7: undefined reference to `Helicopter::~Helicopter()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Labs/lab7/lab7.cpp:7:(.text+0x4b): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `Helicopter::~Helicopter()'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:17: ${PWD##*/}] Error 1
