@@ -1,18 +1,44 @@
-X = g++
-CXXFLAGS = -Wall
+EXE = $${PWD\#\#*/}
+CXXFLAGS = -Wall -g
+SOURCES = $(wildcard *.cpp)
+OBJS = $(SOURCES:.cpp=.o)
+DEPS = $(wildcard *.h)
 
-proj2: Troop.o Game.o proj2.cpp
-	$(CXX) $(CXXFLAGS) Troop.o Game.o proj2.cpp -o proj2
+all: $(EXE) run
 
-Game.o: Troop.o Game.cpp Game.h
-	$(CXX) $(CXXFLAGS) -c Game.cpp
+build: $(EXE)
 
-Troop.o: Troop.cpp Troop.h
-	$(CXX) $(CXXFLAGS) -c Troop.cpp
+c: clean all
+
+echo:
+	echo $(Folder)
+	
+$(EXE): $(OBJS)
+	$(CXX) $(OBJS) -o $(EXE)
+	
+	
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< 
+	
+	
 
 clean:
-	rm *.o*
-	rm *~ 
+	rm -f $(EXE) $(OBJS) $(wildcard *.stackdump)
+	# rm *.o*
+	# rm *~ 
+
+	
+
 
 run:
-	./proj2
+	./$(EXE)
+	
+	
+depend: .depend
+
+.depend: $(DEPS)
+	rm -f ./.depend
+	$(CC) $(CFLAGS) -MM $^ > ./.depend;
+	
+include .depend

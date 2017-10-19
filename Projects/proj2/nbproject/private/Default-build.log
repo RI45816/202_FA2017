@@ -1,0 +1,7 @@
+g++ -Wall -g -c proj2.cpp 
+g++ proj2.o -o ${PWD##*/}
+proj2.o: In function `main':
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj2/proj2.cpp:11: undefined reference to `Game::Game()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj2/proj2.cpp:11:(.text+0x1e): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `Game::Game()'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:17: ${PWD##*/}] Error 1
