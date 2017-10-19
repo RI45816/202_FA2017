@@ -56,7 +56,7 @@ Game::Game() {
 // Load troops from a file
 
 void Game::LoadTroops() {
-    ifstream file(PROJ2_TROOPS);
+    ifstream file(PROJ2_TROOPS.c_str());
 
     //Holder variables
     string name, target;
