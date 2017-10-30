@@ -20,25 +20,26 @@ using namespace std;
 //***************************
 
 void printEach(int num); //Function Prototype
-int main () {
-  cout << "Welcome to Lab 8" << endl;
-  int num = 10; //New integer
-  int *ptrNum = 0; //New pointer to num
-  srand(time(NULL)); //Seeds the random number generator
-  num = rand(); //Generates a new random number for num
-  cout << num << endl; //Prints num
-  cout << *ptrNum << endl; //Prints the dereferenced ptrNum
-  printEach(*ptrNum); //Passes the dereferenced ptrNum to printEach
-  return 0;
+
+int main() {
+    cout << "Welcome to Lab 8" << endl;
+    int num = 10; //New integer
+    int *ptrNum = &num; //New pointer to num
+    srand(time(NULL)); //Seeds the random number generator
+    num = rand(); //Generates a new random number for num
+    cout << num << endl; //Prints num
+    cout << *ptrNum << endl; //Prints the dereferenced ptrNum
+    printEach(*ptrNum); //Passes the dereferenced ptrNum to printEach
+    return 0;
 }
 
-void printEach(int num){
-  //Figures out how many digits are in the number
-  int numDigits = num > 0 ? (int) log10 ((double) num) + 1 : 1;
-  cout << numDigits << endl;
-  //Iterates through the number and prints each number out in reverse order
-  for(int i = 0; i < numDigits ; i++){
-    cout << num % (10) << endl;
-    num *= 10;
-  }
+void printEach(int num) {
+    //Figures out how many digits are in the number
+    int numDigits = num > 0 ? (int) (log10(num)) + 1 : 1;
+    cout << numDigits << endl;
+    //Iterates through the number and prints each number out in reverse order
+    for (int i = 0; i < numDigits; i++) {
+        cout << num % 10 << endl;
+        num /= 10;
+    }
 }
