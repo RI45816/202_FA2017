@@ -1,0 +1,7 @@
+g++ -Wall -g -c Die.cpp 
+g++ -Wall -g -c driver.cpp 
+driver.cpp:7:24: fatal error: SpecialSix.h: No such file or directory
+ #include "SpecialSix.h"
+                        ^
+compilation terminated.
+make: *** [makefile:22: driver.o] Error 1

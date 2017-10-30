@@ -17,8 +17,8 @@ class Die{
   Die(int); //Overloaded constructor
   int getSides(); //Returns m_numSides
   void setSides(int); //Sets m_numSides
-  int rollDie(); //Returns a number between 1 and m_numSides
- private:
+  virtual int rollDie(); //Returns a number between 1 and m_numSides
+ protected:
   int m_numSides;
 };
 
