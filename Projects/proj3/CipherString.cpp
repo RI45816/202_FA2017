@@ -50,14 +50,14 @@ void CipherString::loadMessage(const char* text) {
 //CipherString::CipherString(const CipherString& orig) {
 //}
 
-CipherString::~CipherString() {
-        Node * ptrNode = m_head;
-        while (ptrNode != NULL) {
-            ptrNode = m_head->getNext();
-            delete m_head;
-            m_head = ptrNode;
-        }
-    }
+//CipherString::~CipherString() {
+//        Node * ptrNode = m_head;
+//        while (ptrNode != NULL) {
+//            ptrNode = m_head->getNext();
+//            delete m_head;
+//            m_head = ptrNode;
+//        }
+//    }
 
 // addCharacter
 // Add a character to the linked list
