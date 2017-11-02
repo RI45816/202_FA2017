@@ -51,6 +51,13 @@ void CipherString::loadMessage(const char* text) {
 //}
 
 CipherString::~CipherString() {
+        for (Node * curNode = m_head; curNode;) {
+            Node * next = curNode->getNext();
+            delete curNode;
+            curNode = next;
+        }
+        
+
 }
 
 // addCharacter
