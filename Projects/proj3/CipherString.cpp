@@ -53,7 +53,7 @@ void CipherString::loadMessage(const char* text) {
 CipherString::~CipherString() {
         Node * ptrNode = m_head;
         while (ptrNode != NULL) {
-            ptrNode = m_head->next;
+            ptrNode = m_head->getNext();
             delete m_head;
             m_head = ptrNode;
         }

@@ -69,6 +69,8 @@ void Cipher::changeKey(string key) {
         case VIGENERE:
             m_vig_key =key;
             break;
+        case ONG:
+            break;
     }
 }
 
