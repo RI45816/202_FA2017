@@ -56,7 +56,7 @@ int main(int argc, char* argv[]){
       c.decrypt();
       break;
     case 4:
-      return 0;
+        return 0;
     }
   }while(choice != 4);
   return 0;
