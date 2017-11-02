@@ -1,0 +1,3 @@
+Node.o: Node.h
+Cipher.o: Cipher.h CipherString.h Node.h
+CipherString.o: CipherString.h Node.h

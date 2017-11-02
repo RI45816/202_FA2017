@@ -1,0 +1,22 @@
+g++ -Wall -g -c driver.cpp 
+g++ driver.o -o ${PWD##*/}
+driver.o: In function `main':
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:21: undefined reference to `Cipher::Cipher()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:21:(.text+0x25): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `Cipher::Cipher()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:41: undefined reference to `Cipher::setPlainText(std::string)'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:41:(.text+0x125): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `Cipher::setPlainText(std::string)'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:48: undefined reference to `Cipher::printString()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:48:(.text+0x181): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `Cipher::printString()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:51: undefined reference to `Cipher::encrypt()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:51:(.text+0x18f): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `Cipher::encrypt()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:54: undefined reference to `Cipher::decrypt()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:54:(.text+0x19d): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `Cipher::decrypt()'
+driver.o: In function `createCipher(int)':
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:93: undefined reference to `Cipher::Cipher(char)'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:93:(.text+0x46b): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `Cipher::Cipher(char)'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:98: undefined reference to `Cipher::Cipher(std::string)'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:98:(.text+0x4d8): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `Cipher::Cipher(std::string)'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:101: undefined reference to `Cipher::Cipher()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj3/driver.cpp:101:(.text+0x511): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `Cipher::Cipher()'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:17: ${PWD##*/}] Error 1

@@ -33,8 +33,10 @@ int main(int argc, char* argv[]){
   do{
     printMenu();
     cin >> choice;
-    if (choice == 4)
-      return 0;
+    if (choice == 4){
+            cout << "Goodbye" << endl;
+            return 0;
+            }
     c = createCipher(choice); //creates the linked list
   }while(choice < 1 || choice > 4 );
   
@@ -73,7 +75,7 @@ void printMenu(){
 
 void printCipherMenu(){
   cout << endl;
-  cout << "Select an option:" << endl;
+  cout << "\nSelect an option:" << endl;
   cout << "1. Print current string" << endl;
   cout << "2. Encrypt" << endl;
   cout << "3. Decrypt" << endl;
@@ -84,20 +86,23 @@ Cipher createCipher(int choice){
   string word;
   int key;
   switch(choice){
-  case 1:
-    cout << "Creating Caesar cipher" << endl;
-    cout << "Please enter your key (positive integer): ";
-    do{
-      cin >> key;
-    }while(key<=0);
-    return Cipher(key);
-  case 2:
-    cout << "Creating Vigenere cipher" << endl;
-    cout << "Please enter your key (word): ";
-    cin >> word;
-    return Cipher(word);
-  default:
-    cout << "Creating ong cipher" << endl;
-    return Cipher();
-  }
+        case 1:
+            cout << "Creating Caesar cipher" << endl;
+            do {
+                cout << "Please enter your key (positive integer): ";
+                cin >> key;
+                } while (key <= 0);
+            return Cipher(key);
+        case 2:
+            cout << "Creating Vigenere cipher" << endl;
+            cout << "Please enter your key (word): ";
+            cin >> word;
+            return Cipher(word);
+        case 3:
+            cout << "Creating ong cipher" << endl;
+            return Cipher();
+      default:
+            cout << "Choose an option from 1-4" << endl;
+            return Cipher();
+            }
 }

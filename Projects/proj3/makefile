@@ -1,27 +1,65 @@
-CXX = g++
-CXXFLAGS = -Wall
+EXE = $${PWD\#\#*/}
+CXXFLAGS = -Wall -g
+SOURCES = $(wildcard *.cpp)
+OBJS = $(SOURCES:.cpp=.o)
+DEPS = $(wildcard *.h)
 
-proj3: Cipher.o driver.cpp
-	$(CXX) $(CXXFLAGS) Cipher.o CipherString.o driver.cpp -o proj3
+all: $(EXE) run
 
-Cipher.o: CipherString.o Cipher.cpp Cipher.h
-	$(CXX) $(CXXFLAGS) -c Cipher.cpp
+build: $(EXE)
 
-CipherString.o: CipherString.cpp CipherString.h Node.h
-	$(CXX) $(CXXFLAGS) -c CipherString.cpp
+c: clean all
+
+echo:
+	echo $(Folder)
+	
+$(EXE): $(OBJS)
+	$(CXX) $(OBJS) -o $(EXE)
+	
+	
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< 
+	
+	
+(%): %.cpp
+	$(CXX) -g $< -o $%
+	gdb $%
+	
 
 clean:
-	rm *.o*
-	rm *~ 
+	rm -f $(EXE) $(OBJS) $(wildcard *.stackdump)
+	# rm *.o*
+	# rm *~ 
+
+	
+
 
 run:
-	./proj3
-
-run1:
+	./$(EXE)
+	
+run1: build
 	./proj3 proj3_t1.txt
 
-run2:
+run2: build
 	./proj3 proj3_t2.txt
 
-run3:
+run3: build
 	./proj3 proj3_t3.txt
+
+c1: clean run1
+
+c2: clean run2
+
+c3: clean run3
+
+
+	
+depend: .depend
+
+.depend: $(DEPS)
+	rm -f ./.depend
+	$(CC) $(CFLAGS) -MM $^ > ./.depend;
+	
+include .depend
+

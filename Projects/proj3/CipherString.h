@@ -71,6 +71,11 @@ public:
   // Postconditions - Return size of structure
   int getSize();
   
+  // Name: addIntToChar
+  // Preconditions - a character, and key number to add it by
+  // Postcondition - shifts character by key
+  char addIntToChar(char, int);
+  
   // Name: operator<< (overloaded insertion operator)
   // Preconditions - Linked list exists
   // Postconditions - Iterates over the linked list and prints each char in each node
