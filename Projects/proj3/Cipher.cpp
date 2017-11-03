@@ -109,12 +109,3 @@ void Cipher::encrypt() {
 }
 
 
-
-
-
-//Cipher::Cipher(const Cipher& orig) {
-//}
-//
-//Cipher::~Cipher() {
-//}
-
