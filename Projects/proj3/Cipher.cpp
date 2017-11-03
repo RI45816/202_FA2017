@@ -81,9 +81,9 @@ void Cipher::decrypt() {
         case CAESAR:
             m_cipherString->decryptCaesar(m_caesar_key%26);
             break;
-//        case ONG:
-//            m_cipherString->decryptOng();
-//            break;
+        case ONG:
+            m_cipherString->decryptOng();
+            break;
         case VIGENERE:
             m_cipherString->decryptVigenere(m_vig_key);
             break;
@@ -98,9 +98,9 @@ void Cipher::encrypt() {
         case CAESAR:
             m_cipherString->encryptCaesar(m_caesar_key%26);
             break;
-//        case ONG:
-//            m_cipherString->encryptOng();
-//            break;
+        case ONG:
+            m_cipherString->encryptOng();
+            break;
         case VIGENERE:
             m_cipherString->encryptVigenere(m_vig_key);
             break;

@@ -50,22 +50,21 @@ void CipherString::loadMessage(const char* text) {
 //CipherString::CipherString(const CipherString& orig) {
 //}
 
-//CipherString::~CipherString() {
-//        Node * ptrNode = m_head;
-//        while (ptrNode != NULL) {
-//            ptrNode = m_head->getNext();
-//            delete m_head;
-//            m_head = ptrNode;
-//        }
-//    }
+CipherString::~CipherString() {
+        Node * ptrNode = m_head;
+        while (ptrNode != NULL) {
+            ptrNode = m_head->getNext();
+            delete m_head;
+            m_head = ptrNode;
+        }
+    }
 
 // addCharacter
 // Add a character to the linked list
 
 void CipherString::addCharacter(char c) {
     Node * curNode = m_head;
-    while (curNode->getNext())
-        curNode = curNode->getNext();
+    for ( curNode= m_head; curNode->getNext();curNode=curNode->getNext());
     curNode->setNext(new Node(c));
 }
 
@@ -96,7 +95,7 @@ char CipherString::addIntToChar(char c, int key) {
 // Take Ceaser key and decrypt the message
 void CipherString::decryptCaesar(int key) {
     
-    // Go through all the characters in the linkedlist and cipher them
+    // Go through all the characters in the linkedlist and decipher them
     for (Node * curNode = m_head; curNode; curNode = curNode->getNext()) 
         curNode->setChar(addIntToChar(curNode->getChar(),-key));
        
@@ -121,6 +120,8 @@ void CipherString::encryptVigenere(string key) {
     for (int i=0;i<keySize;i++)
         keys[i]=tolower(key[i])-'a'+1;
     
+    
+    // Loop through linkedlist and cipher them with the vignere square
     int i=0;
     for (Node * curNode = m_head; curNode; curNode = curNode->getNext(),i++)
         curNode->setChar(addIntToChar(curNode->getChar(),keys[i%keySize]));
@@ -135,9 +136,83 @@ void CipherString::decryptVigenere(string key) {
     for (int i=0;i<keySize;i++)
         keys[i]=tolower(key[i])-'a'+1;
     
+    // Loop through linkedlist and decipher them with the vignere square
     int i=0;
     for (Node * curNode = m_head; curNode; curNode = curNode->getNext(),i++)
         curNode->setChar(addIntToChar(curNode->getChar(),-keys[i%keySize]));
+}
+
+// encryptOng
+// Take every consonant in the string and add "-ong" to the end 
+
+void CipherString::encryptOng() {
+    
+    // Loop through linkedlist
+//    for (Node * curNode = m_head; curNode; curNode = curNode->getNext()) {
+//        if (curNode->getNext() && curNode->getNext()->getChar() == '-') {
+//                Node * next = curNode->getNext()->getNext();
+//                delete curNode->getNext();
+//                curNode->setNext(next);
+//            }
+//    }
+    for (Node * curNode = m_head; curNode; curNode = curNode->getNext()) {
+        char curChar = tolower(curNode->getChar()); // store current character
+        Node * next = curNode->getNext(); // Store the next linkedlist node
+        
+        // If the character is a letter and a consonant
+        if (curChar >= 'a' && curChar <= 'z' && curChar != 'a' && curChar != 'e' && curChar != 'i' && curChar != 'o' && curChar != 'u')
+            
+            // Add "ong-" nodes to the linkedlist after the current character
+            for (int i = 0; i < 4; i++) {
+                curNode->setNext(new Node("ong-"[i]));
+                curNode = curNode->getNext();
+            } 
+        else {
+            // Add a dash after the character
+            curNode->setNext(new Node('-'));
+            curNode = curNode->getNext();
+        }
+        // Rejoin the linked list
+        curNode->setNext(next);
+
+    }
+    
+    // Delete the extra dash at the end
+    Node * curNode;
+    for ( curNode= m_head; curNode->getNext()->getNext();curNode=curNode->getNext());
+    delete curNode->getNext();
+    curNode->setNext(NULL);
+    
+}
+
+// decryptOng
+// Remove any "-ong" sequences from the string
+
+void CipherString::decryptOng() {
+    for (Node * curNode = m_head; curNode; curNode = curNode->getNext()) {
+        if (curNode->getNext())
+            if (curNode->getNext()->getChar() == 'o' && curNode->getNext()->getNext() && curNode->getNext()->getNext()->getChar() == 'n' && curNode->getNext()->getNext()->getNext() && curNode->getNext()->getNext()->getNext()->getChar() == 'g') {
+                Node * nexts[5];
+                nexts[0] = curNode->getNext();
+                for (int i = 1; i<4;i++)
+                nexts[i]=nexts[i-1]->getNext();
+                delete nexts[0];
+                delete nexts[1];
+                delete nexts[2];
+                curNode->setNext(nexts[3]);
+                if (curNode->getNext()->getChar() == '-') {
+                    Node * next = curNode->getNext()->getNext();
+                    delete curNode->getNext();
+                    curNode->setNext(next);
+                }
+
+            } else if (curNode->getNext()->getChar() == '-') {
+                Node * next = curNode->getNext()->getNext();
+                delete curNode->getNext();
+                curNode->setNext(next);
+            }
+
+    }
 }
 
 
