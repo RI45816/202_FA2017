@@ -36,6 +36,16 @@ void rotate(T &value1, T &value2, T &value3){
 }
 //Write overloaded rotate function so that example 3 works correctly
 
+template <class T>
+void rotate(T * &value1, T * &value2, T * &value3){
+  T temp;
+  T temp2;
+  temp = *value2;
+  temp2 = *value3;
+  *value2 = *value1;
+  *value3 = temp;
+  *value1 = temp2;
+}
 
 
 template <class T>
@@ -44,7 +54,10 @@ void printThree(T value1, T value2, T value3){
 }
 
 //Write overloaded printThree function so that example 3 works correctly.
-
+template <class T>
+void printThree(T * value1, T * value2, T * value3) {
+      cout << "value1=" << *value1 << " value2=" <<* value2 << " value3=" << *value3 << endl;
+}
 
 
 
@@ -74,6 +87,7 @@ int main () {
   cout << "Example 3 - Char Pointer" << endl;
   printThree(a3,b3,c3);
   rotate(a3,b3,c3);
+  cout << "rotate for char*" << endl;
   printThree(a3,b3,c3);
   cout << endl;
 
