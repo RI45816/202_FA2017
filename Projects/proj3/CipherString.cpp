@@ -30,7 +30,7 @@ CipherString::CipherString() {
 //CipherString
 //Constructor for CipherString, create a linked list from the character array
 
-CipherString::CipherString(const char* filename) {
+    CipherString::CipherString(const char* filename) {
     ifstream file(filename);
     string text;
     getline(file, text);

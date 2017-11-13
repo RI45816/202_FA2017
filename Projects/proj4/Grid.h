@@ -1,10 +1,10 @@
 /*****************************************
 ** File:    Grid.h
-** Project: BattleShip, Spring 2017
-** Author:  Nadezhda Bzhilyanskaya
-** Date:    1/26/16
-** Section: N/A
-** E-mail:  nbzh1@umbc.edu 
+** Project: BattleShip, Fall 2017
+** Author:  Uzoma Uwanamodo
+** Date:    11/7/2017
+** Section: 04
+** E-mail:  uu3@umbc.edu 
 **
 **   This file contains the class header of the Grid class
 **	 this class is resposible for keeping track of all
@@ -65,6 +65,7 @@ public:
   // Preconditions - Have a grid with data
   // Postconditions - Prints the grid - parameter toggles if ships are hidden or not
   string print(bool hideShips);
+
 private:
   int m_grid[SIZE][SIZE]; //Grid to hold integer (game itself)
 };

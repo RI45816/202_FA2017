@@ -1,0 +1,4 @@
+g++  -o ${PWD##*/}
+g++: fatal error: no input files
+compilation terminated.
+make: *** [makefile:17: ${PWD##*/}] Error 1

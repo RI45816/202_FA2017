@@ -1,10 +1,10 @@
 /*****************************************
 ** File:    User.h
-** Project: BattleShip, Spring 2017
-** Author:  Nadezhda Bzhilyanskaya
-** Date:    1/26/16
-** Section: N/A
-** E-mail:  nbzh1@umbc.edu 
+** Project: BattleShip, Fall 2017
+** Author:  Uzoma Uwanamodo
+** Date:    11/7/2017
+** Section: 04
+** E-mail:  uu3@umbc.edu 
 **
 **   This file contains the header file of the User class 
 **	 this class is a child of Player and  outlines what
