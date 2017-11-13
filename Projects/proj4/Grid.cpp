@@ -58,13 +58,13 @@ string Grid::print(bool hideShips) {
         for (int j = -1; j < SIZE; j++) {
             // Print out a period for an undefined square, a pound for a ship (only visible on your own grid), an O for a miss, and an X for a hit.
             if (!~j) {
-                if (~i)
-                    grid += std::to_string(i);
+                if (~i) 
+                    grid += i+'0';
                 else
                     grid += " ";
             } else {
                 if (!~i)
-                    grid += std::to_string(j);
+                    grid += j+'0';
                 else
                     switch (m_grid[i][j]) {
                         case EMPTY:
