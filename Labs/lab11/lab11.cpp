@@ -36,6 +36,12 @@ LinkedList::LinkedList(){ //Default constructor
 
 //Write the Copy Constructor here
 
+LinkedList::LinkedList(const LinkedList& other) {
+    m_head=NULL;
+    for (Node * ptrNode = other.m_head; ptrNode; ptrNode=ptrNode->m_next) 
+        InsertEnd(ptrNode->m_data);
+}
+
 
 
 
@@ -45,6 +51,15 @@ LinkedList::~LinkedList(){ //Destructor
 }
 
 //Write the ClearList Function (used by the destructor) here
+
+void LinkedList::ClearList() {
+    Node * ptrNode = m_head;
+    while (ptrNode != NULL) {
+        ptrNode = m_head->m_next;
+        delete m_head;
+        m_head = ptrNode;
+    }
+}
 
 
 
@@ -91,6 +106,13 @@ void LinkedList::DeleteEnd(){ //Delete Function
 }
 
 //Write the overloaded assignment operator here
+
+LinkedList& LinkedList::operator=(const LinkedList& other) {
+    m_head=NULL;
+    for (Node * ptrNode = other.m_head; ptrNode; ptrNode=ptrNode->m_next) 
+        InsertEnd(ptrNode->m_data);
+    return *this;
+}
 
 
 int main () {
