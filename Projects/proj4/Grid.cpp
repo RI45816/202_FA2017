@@ -39,7 +39,7 @@ Grid::Grid(string file) {
     for (int i = 0; i < SIZE; i++)
         for (int j = 0; j < SIZE; j++)
             m_grid[i][j] = EMPTY;
-//    ifstream f(file);
+    ifstream f(file);
     string buffer; // Store excess text when reading file
     int size, x, y; // Store size, coulumn and row numbers
     char HV; // Store the character that indictates whether ship if horizontal or vertical
