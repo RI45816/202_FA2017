@@ -32,7 +32,7 @@ Computer::Computer() {
 
 // Computer
 // Constructor, inherit from parent Player class
-Computer::Computer(string file) : Player(file), m_yCenter(-1), m_xCenter(-1){
+Computer::Computer(string file) : Player(file), m_yCenter(-1), m_xCenter(-1), m_sinking(false){
 }
 
 // printBoard

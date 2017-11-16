@@ -44,7 +44,7 @@ class Computer: public Player  {
   int m_xCenter; //x coordinate of first move of current ship
   int m_yCenter; //y coordinate of first move of current ship
   DIRECTION m_direction; // Direction the computer should try attacking in
-  bool m_sinking = false; // Whether or not the computer is actively sinking a ship
+  bool m_sinking; // Whether or not the computer is actively sinking a ship
 };
 
 #endif
