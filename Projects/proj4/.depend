@@ -1,4 +1,4 @@
-User.o: User.h Grid.h Player.h
 Grid.o: Grid.h
+User.o: User.h Grid.h Player.h
 Computer.o: Computer.h Grid.h Player.h
 Player.o: Player.h Grid.h

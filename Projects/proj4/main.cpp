@@ -21,6 +21,9 @@
 
 #include <cstdlib>
 #include "Grid.h"
+#include "Player.h"
+#include "User.h"
+#include "Computer.h"
 
 using namespace std;
 
@@ -34,11 +37,22 @@ int main(int argc, char** argv) {
         cout << "No text file loaded - try make run1" << endl;
         return 0;
     }
-    cout << argv[1] << " " << argv[2] << endl;
-    Grid grid1(argv[1]);
-    Grid grid2(argv[2]);
-    cout << grid1.print(false);
-    cout << grid2.print(false);
+
+    Player * players[2] = {new Computer(argv[1]), new User(argv[2])}; // Array to store players, create user and computer
+    Grid * grids[2] = {players[0]->getGrid(), players[1]->getGrid()}; // Store player grids
+
+    // Print boards
+    players[0]->printBoard();
+    players[1]->printBoard();
+
+    int turnIndicator = 0; // Indicates who turn it is, starts with Computer's turn
+    while (true) {
+        players[turnIndicator]->makeMove(grids[turnIndicator^1]);
+        players[turnIndicator^1]->printBoard();
+        if (players[turnIndicator^=1]->hasLost()) {
+            cout << (!turnIndicator ? "You won!" : "Computer has won") << endl;
+            return 0;
+        }
+        }
     return 0;
 }
-

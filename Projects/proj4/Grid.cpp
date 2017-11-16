@@ -50,6 +50,8 @@ Grid::Grid(string file) {
     }
 }
 
+// print
+// Print out the entire grid
 string Grid::print(bool hideShips) {
     string grid = "";
 
@@ -77,7 +79,7 @@ string Grid::print(bool hideShips) {
                             grid += "O";
                             break;
                         case OCCUPIED:
-                            grid += hideShips ? "*" : "#";
+                            grid += hideShips ? "." : "#";
                             break;
                     }
             }
@@ -88,3 +90,48 @@ string Grid::print(bool hideShips) {
     return grid + "\n";
 }
 
+
+// noOccupiedLeft
+// Determine if there are any occupied spaces left
+bool Grid::noOccupiedLeft() {
+    
+    // Go through every square
+    for (int i = 0; i < SIZE; i++)
+        for (int j = 0; j < SIZE; j++)
+            if (m_grid[i][j] == OCCUPIED) // If there is an occupied space, return false
+                return false;
+    return true; // If after going through the entire board, there isn't an occupied space, return true
+
+}
+
+// alreadyTried
+// Return whether or not the user has already tried this space
+bool Grid::alreadyTried(int x, int y) {
+    return m_grid[y][x] == MISS || m_grid[y][x] == HIT;
+}
+
+// isMiss
+// Return whether or not there's an occupied space where the user tried to target
+bool Grid::isMiss(int x, int y) {
+    return m_grid[y][x] != OCCUPIED;
+}
+
+// attack
+// Process attack
+int Grid::attack(int x, int y) {
+    // If the player has already tried, let them know
+    if (alreadyTried(x, y))
+        return 0;
+
+    // If the attack misses, return MISS, set space to MISS
+    if (isMiss(x, y)) {
+        m_grid[y][x] = MISS;
+        return MISS;
+    }
+    
+    // If the attack hit, return HIT, set space to HIT
+    else {
+        m_grid[y][x] = HIT;
+        return HIT;
+    }
+}

@@ -31,7 +31,6 @@ Player::Player() {
 // Grid
 // Constructor function for Player that creates a player with a new grid file
 Player::Player(string file) : m_grid(new Grid(file)) {
-//    m_grid = new Grid(file);
 }
 
 // getGrid
@@ -47,4 +46,10 @@ Player::~Player() {
 // Print out the grid
 void Player::printBoard() {
     cout << m_grid->print(false) << endl;
+}
+
+// hasLost
+// If the player's grid has no occupied spaces left, then they've lost
+bool Player::hasLost() {
+    return m_grid->noOccupiedLeft();
 }
