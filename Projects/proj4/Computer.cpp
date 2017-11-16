@@ -53,8 +53,8 @@ void Computer::makeMove(Grid* grid) {
             srand(time(NULL));
 
             // Generate random attack coordinates
-            x = rand() % 10;
-            y = rand() % 10;
+            x = rand() % 5;
+            y = rand() % 5;
 
             // Superimpose attack coordinates onto different quadrant
             switch (quadrant + 1) {
