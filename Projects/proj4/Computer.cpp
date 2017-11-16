@@ -72,8 +72,9 @@ void Computer::makeMove(Grid* grid) {
             //              x = 5;
             //              y =1;
 
-        }            // Systematically try to sink ship by attack in a linear formation
+        }            
         else {
+        // Systematically try to sink ship by attack in a linear formation
             switch (m_direction) {
                 case NORTH:
                     x = m_xLast;
@@ -112,16 +113,27 @@ void Computer::makeMove(Grid* grid) {
 
             }
         }
+        
+        // Once x and y have been calculated, attack
         attackResult = grid->attack(x, y);
+        
+        // Process attack
         switch (attackResult) {
+            // If the attack missed
             case Grid::MISS:
                 cout << "Computer missed" << endl;
+                
+                // If a previous attack landed
                 if (~m_xCenter && ~m_yCenter) {
+                    
+                    // If the computer has sunk the ship, reset center, direction, and sinking variables
                     if ((m_direction == SOUTH || m_direction == WEST) && m_sinking) {
                         m_xCenter = m_yCenter = -1;
                         m_direction = NORTH;
                         m_sinking = !1;
                     }
+                    
+                    // If the computer is still trying to sink to ship, change direction and try again
                     if (abs(m_xCenter - x) + abs(m_yCenter - y)) {
                         m_direction = DIRECTION(((int) m_direction + 1) % 4);
                         m_xLast = m_xCenter;
@@ -129,19 +141,33 @@ void Computer::makeMove(Grid* grid) {
                     }
                 }
                 break;
+                
+                // If the attack hits
             case Grid::HIT:
                 cout << "Computer Hit Something!!!" << endl;
+                
+                // Save successful attack coordinates for future attack
                 m_xLast = x;
                 m_yLast = y;
+                
+                // If this is first contact with a ship, save the coordinates
                 if (!~m_xCenter) {
                     m_xCenter = x;
                     m_yCenter = y;
                     m_direction = NORTH;
+                    
+                    // If this first contact with a ship, then this direction is where the ship is, indicate it
                 } else {
                     if (abs(m_xCenter - x) + abs(m_yCenter - y)) m_sinking = !0;
                 }
+                
+                // If the attack lands somewhere the computer already hit
             case 0:
+                
+                // If this is the 5th time an attack in this quadrant hit a target that was already hit, change quadrants and try again
                 if (repeat++ == 5) {
+                    
+                    // Make sure the game doesn't freeze
                     if (~m_xCenter && grid->isMiss(x, y))
                         m_direction = DIRECTION(((int) m_direction + 1) % 4);
                     quadrant = rand() % 4;

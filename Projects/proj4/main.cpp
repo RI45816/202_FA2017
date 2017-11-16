@@ -46,9 +46,15 @@ int main(int argc, char** argv) {
     players[1]->printBoard();
 
     int turnIndicator = 0; // Indicates who turn it is, starts with Computer's turn
+    
+    // Play game
     while (true) {
+        
+        // Players switch off attacking
         players[turnIndicator]->makeMove(grids[turnIndicator^1]);
         players[turnIndicator^1]->printBoard();
+        
+        // If the other player lost, current player won
         if (players[turnIndicator^=1]->hasLost()) {
             cout << (!turnIndicator ? "You won!" : "Computer has won") << endl;
             return 0;
