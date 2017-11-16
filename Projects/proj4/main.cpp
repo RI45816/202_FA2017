@@ -57,7 +57,6 @@ int main(int argc, char** argv) {
         // If the other player lost, current player won
         if (players[turnIndicator^=1]->hasLost()) {
             cout << (!turnIndicator ? "You won!" : "Computer has won") << endl;
-            delete players;
             return 0;
         }
         }
