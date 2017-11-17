@@ -59,6 +59,8 @@ int main(int argc, char** argv) {
             cout << (!turnIndicator ? "You won!" : "Computer has won") << endl;
             delete grids[0];
             delete grids[1];
+            delete players[0];
+            delete players[1];
             return 0;
         }
         }
