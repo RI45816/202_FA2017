@@ -40,7 +40,7 @@ Grid* Player::getGrid() {
 }
 
 Player::~Player() {
-    delete m_grid;
+//    delete m_grid;
 }
 
 // printBoard
