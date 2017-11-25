@@ -68,7 +68,7 @@ MusicPlayer::LoadCatalog(string filename)
         getline(file,title,',');
         getline(file,artist,',');
         file >> year;
-        m_songCatalog.push_back(new Song(title,artist,year,atoi(rank.c_str())+100*(year-1983)));
+//        m_songCatalog.push_back(new Song(title,artist,year,atoi(rank.c_str())+100*(year-1983)));
     }    
     cout << "Music Catalog Loaded" << endl;
 }
