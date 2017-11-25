@@ -43,6 +43,9 @@ run1: build
 
 val1: build
 	valgrind ./$(EXE) p5_music1.txt
+
+v1: build
+	valgrind --leak-check=full ./$(EXE) p5_music1.txt
 	
 depend: .depend
 

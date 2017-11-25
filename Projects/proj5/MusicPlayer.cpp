@@ -36,7 +36,7 @@ MusicPlayer::MusicPlayer() {
 // ~MusicPlayer
 // Destructor for MusicPlayer
 MusicPlayer::~MusicPlayer() {
-    delete m_songCatalog;
+    delete &m_songCatalog;
 //    delete m_playList;
 }
 
