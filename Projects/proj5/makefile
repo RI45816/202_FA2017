@@ -41,7 +41,7 @@ run:
 run1: build
 	./$(EXE) p5_music1.txt
 
-val1:
+val1: build
 	valgrind ./$(EXE) p5_music1.txt
 	
 depend: .depend
