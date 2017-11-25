@@ -37,6 +37,7 @@ MusicPlayer::MusicPlayer() {
 // Destructor for MusicPlayer
 MusicPlayer::~MusicPlayer() {
 //    delete &m_songCatalog;
+    m_songCatalog.erase();
     m_songCatalog.clear();
     vector<Song*>().swap(m_songCatalog);
 //    delete m_playList;
