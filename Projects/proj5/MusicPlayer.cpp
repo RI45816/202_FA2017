@@ -38,7 +38,8 @@ MusicPlayer::MusicPlayer() {
 MusicPlayer::~MusicPlayer() {
 //    delete &m_songCatalog;
     
-       m_songCatalog.erase(m_songCatalog.begin(),m_songCatalog.end());
+   for (vector<Song*>::iterator i = m_songCatalog.begin(); i != m_songCatalog.end(); i++)
+       delete *i;
 //    delete m_playList;
 }
 
@@ -68,7 +69,7 @@ MusicPlayer::LoadCatalog(string filename)
         getline(file,title,',');
         getline(file,artist,',');
         file >> year;
-//        m_songCatalog.push_back(new Song(title,artist,year,atoi(rank.c_str())+100*(year-1983)));
+        m_songCatalog.push_back(new Song(title,artist,year,atoi(rank.c_str())+100*(year-1983)));
     }    
     cout << "Music Catalog Loaded" << endl;
 }
