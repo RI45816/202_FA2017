@@ -38,7 +38,7 @@ MusicPlayer::MusicPlayer() {
 MusicPlayer::~MusicPlayer() {
 //    delete &m_songCatalog;
     
-       m_songCatalog.erase(m_songCatalog.begin(),m_songCatalog,end());
+       m_songCatalog.erase(m_songCatalog.begin(),m_songCatalog.end());
 //    delete m_playList;
 }
 
