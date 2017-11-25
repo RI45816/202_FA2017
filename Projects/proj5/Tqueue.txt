@@ -1,0 +1,206 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/*****************************************
+ ** File:    Tqueue.cpp
+ ** Project: CMSC 202 Project 5, Fall 2017
+ ** Author:  Uzoma Uwanamodo
+ ** Date:    11/24/2017
+ ** Section: 02
+ ** E-mail:  uu3@umbc.edu
+ ** 
+ ** This file contains the definition for the Tqueue class.
+ ** 
+ ** 
+ ** 
+ ** 
+ *********************************************/
+
+#include <iostream>
+#include "Tqueue.h"
+
+using namespace std;
+
+// Tqueue
+// Constructor for Tqueue class
+template<class T, int N>
+Tqueue<T, N>::Tqueue() {
+    m_data = new Tqueue<class T,int N>[N];
+}
+
+// Tqueue
+// Copy constructor for Tqueue class
+template<class T, int N>
+Tqueue<T, N>::Tqueue(const Tqueue<T, N>& x) {
+
+}
+
+// ~Tqueue
+// Destructor for Tqueue class
+template<class T, int N>
+Tqueue<T, N>::~Tqueue() {
+    delete[] m_data;
+}
+
+
+// Enqueue
+// Add object<T> to back of queue
+template<class T, int N>
+void Tqueue<T, N>::enqueue(T data) {
+    m_data[m_back--] = data;
+}
+
+// Dequeue
+// Remove object<T> from the front of queue
+template<class T, int N>
+void Tqueue<T, N>::dequeue(T&) {
+    t = m_data[m_front--];
+    
+    if (isEmpty())
+        m_front = m_back = N - 1;
+}
+
+template<class T, int N>
+int Tqueue<T, N>::isEmpty() {
+    return (m_front == m_back) ^ 0;
+}
+/*
+ *  Method: Tqueue::Tqueue
+ *  Params: 
+ * Effects: 
+ */
+template <class T, int N>
+Tqueue::Tqueue()
+{
+}
+
+
+/*
+ *  Method: Tqueue::Tqueue
+ *  Params: const Tqueue<T, N> &x
+ * Effects: 
+ */
+template <class T, int N>
+Tqueue::Tqueue(const Tqueue<T, N> &x)
+{
+}
+
+
+/*
+ *  Method: Tqueue::~Tqueue
+ *  Params: 
+ * Effects: 
+ */
+template <class T, int N>
+Tqueue::~Tqueue()
+{
+}
+
+
+/*
+ *  Method: Tqueue::enqueue
+ *  Params: T data
+ * Returns: void
+ * Effects: 
+ */
+template <class T, int N>
+void
+Tqueue::enqueue(T data)
+{
+}
+
+
+/*
+ *  Method: Tqueue::dequeue
+ *  Params: T &
+ * Returns: void
+ * Effects: 
+ */
+template <class T, int N>
+void
+Tqueue::dequeue(T &)
+{
+}
+
+
+/*
+ *  Method: Tqueue::queueFront
+ *  Params: T &
+ * Returns: void
+ * Effects: 
+ */
+template <class T, int N>
+void
+Tqueue::queueFront(T &)
+{
+}
+
+
+/*
+ *  Method: Tqueue::isEmpty
+ *  Params: 
+ * Returns: int
+ * Effects: 
+ */
+template <class T, int N>
+int
+Tqueue::isEmpty()
+{
+}
+
+
+/*
+ *  Method: Tqueue::isFull
+ *  Params: 
+ * Returns: int
+ * Effects: 
+ */
+template <class T, int N>
+int
+Tqueue::isFull()
+{
+}
+
+
+/*
+ *  Method: Tqueue::size
+ *  Params: 
+ * Returns: int
+ * Effects: 
+ */
+template <class T, int N>
+int
+Tqueue::size()
+{
+}
+
+
+/*
+ *  Method: Tqueue::operator=
+ *  Params: Tqueue<T, N> y
+ * Returns: Tqueue<T, N> &
+ * Effects: 
+ */
+template <class T, int N>
+Tqueue<T, N> &
+Tqueue::operator=(Tqueue<T, N> y)
+{
+}
+
+
+/*
+ *  Method: Tqueue::operator[]
+ *  Params: int x
+ * Returns: T &
+ * Effects: 
+ */
+template <class T, int N>
+T &
+Tqueue::operator[](int x)
+{
+}
+
+

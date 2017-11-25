@@ -1,0 +1,2 @@
+MusicPlayer.o: MusicPlayer.h Song.h Tqueue.cpp
+Song.o: Song.h

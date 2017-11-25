@@ -15,18 +15,26 @@ class Song{
   //Precondition: Requires title, artist, year and rank
   //Postcondition: Creates a song based on passed parameters
   Song(string title, string artist, int year, int rank );
+  void SetRank(int rank);
+  int GetRank() const;
+  void SetYear(int year);
+  int GetYear() const;
+  void SetArtist(string artist);
+  string GetArtist() const;
+  void SetTitle(string title);
+  string GetTitle() const;
 
   //Name: Mutators and Accessors
   //Precondition: None
   //Postcondition: Sets and Gets private member variables
-  string getTitle()const; // return title
-  string getArtist()const; // return artist
-  int getYear()const; // return year
-  int getRank()const; // return rank (1-100 from that year) 
-  void setTitle(string title);
-  void setArtist(string artist);
-  void setYear(int year);
-  void setRank(int rank);
+//  string getTitle()const; // return title
+//  string getArtist()const; // return artist
+//  int getYear()const; // return year
+//  int getRank()const; // return rank (1-100 from that year) 
+//  void setTitle(string title);
+//  void setArtist(string artist);
+//  void setYear(int year);
+//  void setRank(int rank);
  private:
   string m_title; //Title of song
   string m_artist; //Artist of song

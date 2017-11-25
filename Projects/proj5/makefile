@@ -1,24 +1,54 @@
-CXX = g++
+EXE = $${PWD\#\#*/}
 CXXFLAGS = -Wall -g
+SOURCES = $(wildcard *.cpp)
+OBJS = $(SOURCES:.cpp=.o)
+DEPS = $(wildcard *.h)
 
-proj5: MusicPlayer.o Song.o driver.cpp
-	$(CXX) $(CXXFLAGS) MusicPlayer.o Song.o driver.cpp -o proj5
+all: $(EXE) run
 
-MusicPlayer.o: MusicPlayer.cpp  MusicPlayer.h Song.o
-	$(CXX) $(CXXFLAGS) -c MusicPlayer.cpp
+build: $(EXE)
 
-Song.o: Song.cpp Song.h
-	$(CXX) $(CXXFLAGS) -c Song.cpp
+c: clean all
+
+echo:
+	echo $(Folder)
+	
+$(EXE): $(OBJS)
+	$(CXX) $(OBJS) -o $(EXE)
+	
+	
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< 
+	
+	
+(%): %.cpp
+	$(CXX) -g $< -o $%
+	gdb $%
+	
+
+clean:
+	rm -f $(EXE) $(OBJS) $(wildcard *.stackdump)
+	# rm *.o*
+	# rm *~ 
+
+	
+
 
 run:
-	./proj5
-
-run1:
-	./proj5 p5_music1.txt
+	./$(EXE)
+	
+run1: build
+	./$(EXE) p5_music1.txt
 
 val1:
-	valgrind ./proj5 p5_music1.txt
+	valgrind ./$(EXE) p5_music1.txt
+	
+depend: .depend
 
-clean: 
-	rm *~
-	rm *.o
+.depend: $(DEPS)
+	rm -f ./.depend
+	$(CC) $(CFLAGS) -MM $^ > ./.depend;
+	
+include .depend
+

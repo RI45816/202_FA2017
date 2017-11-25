@@ -1,0 +1,12 @@
+g++ -Wall -g -c driver.cpp 
+g++ -Wall -g -c Tqueue.cpp 
+g++ driver.o Tqueue.o -o ${PWD##*/}
+driver.o: In function `main':
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj5/driver.cpp:15: undefined reference to `MusicPlayer::MusicPlayer(std::string)'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj5/driver.cpp:15:(.text+0xd6): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `MusicPlayer::MusicPlayer(std::string)'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj5/driver.cpp:16: undefined reference to `MusicPlayer::MainMenu()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj5/driver.cpp:16:(.text+0xf2): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `MusicPlayer::MainMenu()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj5/driver.cpp:17: undefined reference to `MusicPlayer::~MusicPlayer()'
+/cygdrive/c/Users/amozu/OneDrive - UMBC/FA2017/CMSC 202/202_FA2017/Projects/proj5/driver.cpp:17:(.text+0x103): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `MusicPlayer::~MusicPlayer()'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:17: ${PWD##*/}] Error 1

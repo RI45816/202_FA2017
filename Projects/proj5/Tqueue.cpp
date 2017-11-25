@@ -60,4 +60,118 @@ private:
 
 //**** Add class definition below ****
 
+// Tqueue
+// Constructor for Tqueue class
+template <class T, int N>
+Tqueue<T, N>::Tqueue()
+{
+    m_data = new T[N];
+    m_back = m_front = N - 1;
+}
+
+// Tqueue
+// Copy constructor for Tqueue class
+template <class T, int N>
+Tqueue<T, N>::Tqueue(const Tqueue<T, N> &x) : m_back(x.m_back), m_data(new T[N]), m_front(x.m_front) {
+    for (int i = 0; i < N; i++)
+        m_data[i] = x.m_data[i];
+}
+
+
+// ~Tqueue
+// Deconstructor for Tqueue
+template <class T, int N>
+Tqueue<T, N>::~Tqueue()
+{
+    delete[] m_data;
+}
+
+
+// Enqueue
+// Add object<T> to back of queue
+template <class T, int N>
+void
+Tqueue<T, N>::enqueue(T data)
+{
+    m_data[m_back--] = data;
+}
+
+
+// Dequeue
+// Remove object<T> from the front of queue
+template <class T, int N>
+void
+Tqueue<T, N>::dequeue(T &t)
+{
+    t = m_data[m_front--];
+    
+    if (isEmpty())
+        m_front = m_back = N - 1;
+}
+
+
+// queueFront
+// Display the front of the queue without removing it
+template <class T, int N>
+void
+Tqueue<T, N>::queueFront(T &t)
+{
+    t = m_data[m_front];
+}
+
+
+// isEmpty
+// Returns 1 if empty, 0 if not
+template <class T, int N>
+int
+Tqueue<T, N>::isEmpty()
+{
+    return (m_front == m_back) ^ 0;
+}
+
+// isFull
+// returns 1 if full, 0 if not
+template <class T, int N>
+int
+Tqueue<T, N>::isFull()
+{
+    return (!m_back) ^ 0;
+}
+
+// size
+// returns size of the queue
+template <class T, int N>
+int
+Tqueue<T, N>::size()
+{
+    return m_front - m_back;
+}
+
+// operator=
+// Overrides = operator for Tqueue class
+template <class T, int N>
+Tqueue<T, N> &
+Tqueue<T, N>::operator=(Tqueue<T, N> y)
+{
+    m_back = y.m_back;
+    m_front = y.m_front;
+    m_data = new T(N);
+    for (int i = 0; i < N; i++)
+        m_data[i] = y.m_data[i];
+    return *this;
+    
+}
+
+
+// operator[]
+// Overrides [] operator for Tqueue class
+template <class T, int N>
+T &
+Tqueue<T, N>::operator[](int x)
+{
+    return m_data[m_front-x];
+}
+
+
 #endif
+
